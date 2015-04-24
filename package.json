@@ -1,0 +1,30 @@
+{
+  "name": "reckoning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patternleaf/reckoning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patternleaf/reckoning/issues"
+  },
+  "homepage": "https://github.com/patternleaf/reckoning",
+  "devDependencies": {
+    "flickrapi": "^0.3.28",
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "twitter": "^1.2.5"
+  }
+}
