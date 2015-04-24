@@ -7,7 +7,7 @@ var urlForPhoto = function(photo) {
 };
 
 var gCurrentRange = {
-    start: moment().startOf("week").toDate(),
+    start: moment().startOf("month").toDate(),
     end: moment().startOf("day").toDate()
 };
 
@@ -59,7 +59,7 @@ $(document).on("ready", function() {
     var handleZoom = function() {
         var z = d3.select("#map g.zoom-group");
         z.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-        z.select(".counties").style("stroke-width", 1.5 / d3.event.scale + "px");
+        z.select(".counties").style("stroke-width", 1 / d3.event.scale + "px");
         updateHeatmapPoints(true);
         updateImageCallouts();
     };
@@ -101,9 +101,10 @@ $(document).on("ready", function() {
             gDataRange.start = new Date(dateMin);
             gDataRange.end = new Date(dateMax);
             $("#slider").dateRangeSlider("option", "bounds", {
-                min: gDataRange.start,
-                max: gDataRange.end
+                min: new Date($("#query #start-date").val()),
+                max: new Date($("#query #end-date").val())
             });
+            $("#slider").dateRangeSlider("values", gDataRange.start, gDataRange.end);
             updateHeatmapPoints(true);
             updateImageBarImages();
         });
@@ -157,9 +158,11 @@ $(document).on("ready", function() {
         ctx.clearRect(0, 0, 800, 600);
         imgs.forEach(function(img) {
             var pt = projectWithZoom(img.geo.lng, img.geo.lat);
+            var slope = Math.abs(img.y - pt.y) / Math.abs(800 - pt.x);
             ctx.beginPath();
             ctx.moveTo(800, img.y);
             ctx.lineTo(pt.x, pt.y);
+            ctx.strokeStyle = "rgba(0, 0, 0, " + Math.min(1, Math.max(1 - slope, .1)) + ")";
             ctx.stroke();
         });
     };
@@ -183,6 +186,6 @@ $(document).on("ready", function() {
     };
     raf(animateHeatmap);
     $("#images").on("scroll", handleImageBarScrolled);
-    $("#start-date").val(moment().startOf("week").format("YYYY-MM-DD"));
+    $("#start-date").val(moment().startOf("month").format("YYYY-MM-DD"));
     $("#end-date").val(moment().startOf("day").format("YYYY-MM-DD"));
 });
