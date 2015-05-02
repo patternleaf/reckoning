@@ -21,6 +21,8 @@
     "topojson": "~1.6.19",
     "jqrangeslider": "~5.7.1",
     "jquery-ui": "~1.11.4",
-    "moment": "~2.10.2"
+    "moment": "~2.10.2",
+    "leaflet": "~0.7.3",
+    "mapbox.js": "~2.1.9"
   }
 }

@@ -10,14 +10,17 @@ module.exports = function(grunt) {
 	var vendorJSFiles = {
 		develop: [
 			'bower_components/jquery/dist/jquery.js',
-			'bower_components/jquery-ui/jquery-ui.js',
 			'bower_components/d3/d3.js',
-			'bower_components/topojson/topojson.js',
+			// 'bower_components/topojson/topojson.js',
 			'bower_components/lodash/lodash.min.js',
 			'bower_components/moment/moment.js',
-			'src/vendor-js/webgl-heatmap.js',
-			'node_modules/flickrapi/browser/flickrapi.dev.js',
-			'src/vendor-js/county-topojson.js',
+			// 'bower_components/mapbox.js/mapbox.js',
+			'bower_components/leaflet/dist/leaflet.js',
+			'bower_components/handlebars/handlebars.js'
+			// 'src/vendor-js/webgl-heatmap.js',
+			// 'node_modules/flickrapi/browser/flickrapi.dev.js',
+			// 'src/vendor-js/county-topojson.js',
+			/*
 			'bower_components/jqrangeslider/jQRangeSliderMouseTouch.js',
 			'bower_components/jqrangeslider/jQRangeSliderMouseTouch.js',
 			'bower_components/jqrangeslider/jQRangeSliderDraggable.js',
@@ -29,6 +32,7 @@ module.exports = function(grunt) {
 			'bower_components/jqrangeslider/jQDateRangeSlider.js',
 			'bower_components/jqrangeslider/jQEditRangeSliderLabel.js',
 			'bower_components/jqrangeslider/jQEditRangeSlider.js'
+			*/
 		],
 		production: [
 		],
@@ -106,6 +110,11 @@ module.exports = function(grunt) {
 					cwd: 'src/img',
 					src: '**/*',
 					dest: 'webroot-dev/img/'
+				}, {
+					expand: true,
+					cwd: 'bower_components/leaflet/dist/images',
+					src: '**/*',
+					dest: 'webroot-dev/css/images'
 				}]
 			},
 			production: {

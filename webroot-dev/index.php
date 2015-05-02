@@ -7,54 +7,40 @@
 </head>
 <body>
 
-<div id="vis">
-	<svg id="map" width="800" height="600">
-		<g class="zoom-group">
-			<g class="counties">
-			</g>
-			<g class="events">
-			</g>
-		</g>
-	</svg>
-	<canvas id="heatmap" width="800" height="600"></canvas>
-	<canvas id="overlay" width="800" height="600"></canvas>
-	<div id="images">
-	</div>
-</div>
+<div id="map"></div>
 
-<form id="query">
-	<h1>Search Flickr for</h1>
-	<input type="text" id="query-text"> from
-	<input type="date" id="start-date" value="2014-08-01"> to
-	<input type="date" id="end-date" value="2015-04-11">
-	<input type="submit">
-	<span id="n-results"></span>
+<form id="tag-search">
+	<input type="text" name="tag" placeholder="instagram">
+	<button type="submit">Search</button>
 </form>
 
-<div id="slider"></div>
+<script id="instagram-popup-template" type="text/x-handlebars-template">
+	<div class="instagram-popup">
+		<div class="instagram-popup-body">
+			<section class="content instagram-content">
+				<div class="main-image-container">
+					<a href="{{postUrl}}" style="background-image: url({{imgUrl}})"><img src="{{imgUrl}}"></a>
+				</div>
+				<p class="caption"><a href="{{postUrl}}">{{{caption}}}</a></p>
+				<div class="user-avatar instagram-avatar-pic">
+					<a href="{{userUrl}}"><img src="{{userAvatarUrl}}"></a>
+				</div>
+				<p>By <a href="{{userUrl}}">{{username}}</a> {{locationName}} {{timestamp}}</p>
+			</section>
+			<section class="meta instagram-meta">
+				<h3>Tagged</h3>
+				<ul class="tag-list instagram-tag-list">
+				{{#each tags}}
+					<li>{{this}}</li>
+				{{/each}}
+				</ul>
+			</section>
+		</div>
+	</div>
+</script>
 
 <script type="text/javascript" src="/js/vendor.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
 
-<!--
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-
-<script src="bower_components/jqrangeslider/jQRangeSliderMouseTouch.js"></script>
-<script src="bower_components/jqrangeslider/jQRangeSliderDraggable.js"></script>
-<script src="bower_components/jqrangeslider/jQRangeSliderHandle.js"></script>
-<script src="bower_components/jqrangeslider/jQRangeSliderBar.js"></script>
-<script src="bower_components/jqrangeslider/jQRangeSliderLabel.js"></script>
-<script src="bower_components/jqrangeslider/jQRangeSlider.js"></script>
-<script src="bower_components/jqrangeslider/jQDateRangeSliderHandle.js"></script>
-<script src="bower_components/jqrangeslider/jQDateRangeSlider.js"></script>
-<script src="bower_components/jqrangeslider/jQEditRangeSliderLabel.js"></script>
-<script src="bower_components/jqrangeslider/jQEditRangeSlider.js"></script>
-
-<script type="text/javascript" src="bower_components/d3/d3.js" ></script>
-<script type="text/javascript" src="bower_components/topojson/topojson.js"></script>
-<script type="text/javascript" src="bower_components/lodash/lodash.js"></script>
-<script type="text/javascript" src="test.js"></script>
--->
 </body>
 </html>
