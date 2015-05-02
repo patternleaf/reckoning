@@ -16,7 +16,9 @@ module.exports = function(grunt) {
 			'bower_components/moment/moment.js',
 			// 'bower_components/mapbox.js/mapbox.js',
 			'bower_components/leaflet/dist/leaflet.js',
-			'bower_components/handlebars/handlebars.js'
+			'bower_components/handlebars/handlebars.js',
+			'bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.js',
+			'src/vendor-js/oms.min.js'
 			// 'src/vendor-js/webgl-heatmap.js',
 			// 'node_modules/flickrapi/browser/flickrapi.dev.js',
 			// 'src/vendor-js/county-topojson.js',
@@ -115,17 +117,31 @@ module.exports = function(grunt) {
 					cwd: 'bower_components/leaflet/dist/images',
 					src: '**/*',
 					dest: 'webroot-dev/css/images'
+				}, {
+					expand: true,
+					cwd: 'src/api',
+					src: '**/*',
+					dest: 'webroot-dev/api'
+				}, {
+					expand: true,
+					cwd: 'src/credentials',
+					src: '**/*',
+					dest: 'webroot-dev/credentials'
+				}, {
+					'webroot-dev/api/twitter/TwitterAPIExchange.php': 'src/vendor-php/TwitterAPIExchange.php'
+				}, {
+					expand: true,
+					cwd: 'bower_components/font-awesome/fonts',
+					src: '**/*',
+					dest: 'webroot-dev/fonts'
+				}, {
+					expand: true,
+					cwd: 'bower_components/Leaflet.awesome-markers/dist/images',
+					src: '**/*',
+					dest: 'webroot-dev/css/images'
 				}]
 			},
 			production: {
-				files: [{
-					'webroot-prod/index.php': 'src/index.php',
-				}, {
-					expand: true,
-					cwd: 'src/img',
-					src: '**/*',
-					dest: 'webroot-prod/img/'
-				}]
 			}
 		},
 		
@@ -133,6 +149,7 @@ module.exports = function(grunt) {
 			files: [
 				'src/js/**/*.js', 
 				'src/index.php', 
+				'src/api/**/*', 
 				'src/less/**/*.less',
 				'src/less/**/*.css',
 				'src/img/**/*',

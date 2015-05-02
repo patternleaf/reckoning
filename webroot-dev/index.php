@@ -10,26 +10,34 @@
 <div id="map"></div>
 
 <form id="tag-search">
-	<input type="text" name="tag" placeholder="instagram">
+	<input type="text" name="tag" placeholder="instagram &amp; twitter">
 	<button type="submit">Search</button>
 </form>
 
-<script id="instagram-popup-template" type="text/x-handlebars-template">
-	<div class="instagram-popup">
-		<div class="instagram-popup-body">
-			<section class="content instagram-content">
+<script id="service-popup-template" type="text/x-handlebars-template">
+	<div class="service-popup">
+		<div class="service-popup-body">
+			<section class="content">
+
+			{{#if hasImage}}
 				<div class="main-image-container">
 					<a href="{{postUrl}}" style="background-image: url({{imgUrl}})"><img src="{{imgUrl}}"></a>
 				</div>
-				<p class="caption"><a href="{{postUrl}}">{{{caption}}}</a></p>
-				<div class="user-avatar instagram-avatar-pic">
-					<a href="{{userUrl}}"><img src="{{userAvatarUrl}}"></a>
+			{{/if}}
+
+				<p class="caption">{{{caption}}}</p>
+
+				<div class="byline">
+					<div class="user-avatar service-avatar-pic">
+						<a href="{{userUrl}}"><img src="{{userAvatarUrl}}"></a>
+					</div>
+					<p>By <a href="{{userUrl}}">{{username}}</a> {{locationName}} {{timestamp}}</p>
 				</div>
-				<p>By <a href="{{userUrl}}">{{username}}</a> {{locationName}} {{timestamp}}</p>
 			</section>
-			<section class="meta instagram-meta">
+			<section class="meta service-meta">
+				<a class="view-original-link" href="{{postUrl}}"><i class="fa fa-{{serviceIconName}}"></i> View Original</a>
 				<h3>Tagged</h3>
-				<ul class="tag-list instagram-tag-list">
+				<ul class="tag-list service-tag-list">
 				{{#each tags}}
 					<li>{{this}}</li>
 				{{/each}}

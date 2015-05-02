@@ -23,6 +23,8 @@
     "jquery-ui": "~1.11.4",
     "moment": "~2.10.2",
     "leaflet": "~0.7.3",
-    "mapbox.js": "~2.1.9"
+    "mapbox.js": "~2.1.9",
+    "font-awesome": "~4.3.0",
+    "Leaflet.awesome-markers": "~2.0.2"
   }
 }
