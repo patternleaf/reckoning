@@ -10,9 +10,17 @@
 <div id="map"></div>
 
 <form id="tag-search">
+	<h1>Tag Search</h1>
 	<input type="text" name="tag" placeholder="instagram &amp; twitter">
 	<button type="submit">Search</button>
 </form>
+
+<form id="user-history-search">
+	<h1>User History Search</h1>
+	@<input type="text" name="username" placeholder="instagram &amp; twitter">
+	<button type="submit">Search</button>
+</form>
+
 
 <script id="service-popup-template" type="text/x-handlebars-template">
 	<div class="service-popup">

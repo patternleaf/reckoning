@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 		develop: [
 			'bower_components/jquery/dist/jquery.js',
 			'bower_components/d3/d3.js',
+			'bower_components/ember/ember.debug.js',
 			// 'bower_components/topojson/topojson.js',
 			'bower_components/lodash/lodash.min.js',
 			'bower_components/moment/moment.js',

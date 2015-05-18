@@ -16,12 +16,16 @@ body {
 	height:600px;
 }
 
-form#tag-search {
-	width: 400px;
-	margin: 20px auto;
+form#tag-search, form#user-history-search {
+	width: 500px;
+	float: left;
 	font-size: 25px;
 	input, button {
 		font-size:25px;
+	}
+	h1 {
+		font-size:14px;
+
 	}
 }
 
@@ -131,4 +135,10 @@ form#tag-search {
 
 .leaflet-popup-content {
 	margin:0;
+}
+
+.event-path {
+	stroke:#555;
+	stroke-width: 5px;
+	fill:none;
 }

@@ -25,6 +25,7 @@
     "leaflet": "~0.7.3",
     "mapbox.js": "~2.1.9",
     "font-awesome": "~4.3.0",
-    "Leaflet.awesome-markers": "~2.0.2"
+    "Leaflet.awesome-markers": "~2.0.2",
+    "ember": "~1.11.3"
   }
 }

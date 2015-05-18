@@ -2355,14 +2355,21 @@ body a {
 #map {
   height: 600px;
 }
-form#tag-search {
-  width: 400px;
-  margin: 20px auto;
+form#tag-search,
+form#user-history-search {
+  width: 500px;
+  float: left;
   font-size: 25px;
 }
 form#tag-search input,
-form#tag-search button {
+form#user-history-search input,
+form#tag-search button,
+form#user-history-search button {
   font-size: 25px;
+}
+form#tag-search h1,
+form#user-history-search h1 {
+  font-size: 14px;
 }
 .service-popup {
   width: 250px;
@@ -2460,4 +2467,9 @@ form#tag-search button {
 }
 .leaflet-popup-content {
   margin: 0;
+}
+.event-path {
+  stroke: #555;
+  stroke-width: 5px;
+  fill: none;
 }
